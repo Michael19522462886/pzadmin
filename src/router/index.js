@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-09-13 15:23:06
  * @LastEditors: Michael19522462886 2632044037@qq.com
- * @LastEditTime: 2024-10-07 14:49:44
+ * @LastEditTime: 2024-10-08 11:02:40
  * @FilePath: \accompany\pzadmin\src\router\index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,11 +14,25 @@ import Group from '../views/auth/group/index.vue'
 import Staff from '../views/vppz/staff/index.vue'
 import Order from '../views/vppz/order/index.vue'
 import Dashboard from '../views/dashboard/index.vue'
+const localData = localStorage.getItem('pz_admin')
 const routes = [
     { 
       path: '/',
       component: Layout,
       name: 'main',
+      redirect: to => {
+        if(localData){
+          const child = JSON.parse(localData).menu.routerList[0].children
+          if(child){
+            return child[0].meta.path
+          }
+          else{
+            return JSON.parse(localData).menu.routerList[0].meta.path
+          }
+        }
+        return '/'
+        
+      },
       children: [
         // {
         //   path: 'dashboard',
