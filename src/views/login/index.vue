@@ -165,7 +165,7 @@ const submitForm = async (formEl) => {
                         localStorage.setItem('token',data.token)
                         localStorage.setItem('userinfo',JSON.stringify(data.userInfo))
                         getPermissions().then((data) => {
-                            console.log("1111")
+                            console.log("1111",data)
                             console.log("getPermissions" ,data)
                             store.commit('dynamicMenu',data)
                             console.log("routerList",routerList.value)

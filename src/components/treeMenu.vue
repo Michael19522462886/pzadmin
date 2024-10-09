@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-09-13 17:29:08
  * @LastEditors: Michael19522462886 2632044037@qq.com
- * @LastEditTime: 2024-10-08 10:40:37
+ * @LastEditTime: 2024-10-08 11:31:18
  * @FilePath: \accompany\pzadmin\src\components\treeMenu.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,7 +10,7 @@
     <template v-for="(item, index) in props.menuData">
       <el-menu-item
         @click="handleChick(item, `${props.index}-${item.meta.id}`)"
-        v-if="!item.children || item.children.lenght == 0"
+        v-if="!item.children || item.children.length == 0"
         :index="`${props.index}-${item.meta.id}`"
         
       >
@@ -36,11 +36,12 @@
 import {useRouter} from 'vue-router'
 import {useStore} from 'vuex'
 const props = defineProps(['menuData', 'index'])
-// console.log(props.menuData,"@@@")
+console.log(props.menuData,"@@@")
 const router = useRouter()
 const store = useStore()
 const handleChick = (item,active) => {
     console.log(item,"item")
+    console.log("active",active)
     store.commit('addMenu',item.meta)
     store.commit('updateMenuActive',active)
 

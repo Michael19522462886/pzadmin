@@ -1,6 +1,7 @@
 <template>
     <div class="nav-header">
         <div class="nav-left flex-box">
+            <!-- 左侧折叠区 -->
             <el-icon class="icon" size="20" @click="store.commit('collapaseMenu')">
                 <Fold />
             </el-icon>
