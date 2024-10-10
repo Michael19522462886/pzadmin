@@ -118,4 +118,11 @@ export function deleteCompanion(data) {
     data: { id: data }, // 将 data.id 作为请求体数据发送
   });
 }
-
+//订单列表获取
+export function getOrderList(params) {
+  return request({
+    url: '/admin/order',
+    method: 'get',
+    params: params
+  })
+}
