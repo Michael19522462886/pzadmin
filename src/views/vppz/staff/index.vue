@@ -2,12 +2,13 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2024-09-13 17:35:24
  * @LastEditors: Michael19522462886 2632044037@qq.com
- * @LastEditTime: 2024-10-09 15:50:57
+ * @LastEditTime: 2024-10-10 15:13:44
  * @FilePath: \accompany\pzadmin\src\views\vppz\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
     <div class="group-container">
+        <PanelHead :route="route"/>
         <div class="group-content">
             <el-button type="primary" @click="visible = true" size="small">
                 <el-icon>
@@ -132,6 +133,8 @@ import { format } from 'date-fns'
 import { companionList, addCompanion, getPhotoList, deleteCompanion } from '../../../api';
 import { onMounted, reactive, ref, nextTick } from 'vue';
 import { Plus } from '@element-plus/icons-vue';
+import { useRoute } from 'vue-router';
+let route = useRoute()
 let visible = ref(false)
 onMounted(() => {
     getStaffList();
